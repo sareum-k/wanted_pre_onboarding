@@ -43,10 +43,10 @@ const Desc = styled.div`
 `;
 
 export const Toggle = () => {
-    const [isOn, setisOn] = useState(false);
+    const [isOn, setIsOn] = useState(false);
 
     const toggleHandler = () => {
-        setisOn(!isOn)
+        setIsOn(!isOn)
     };
 
     return (
