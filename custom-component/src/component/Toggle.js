@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ToggleContainer = styled.div`
     position: relative;
-    margin-top: 8rem;
+    margin-top: 6rem;
     left: 48%;
     cursor: pointer;
 
@@ -15,7 +15,7 @@ const ToggleContainer = styled.div`
         transition: all .2s ease;
         
         &.toggle--checked {
-            background-color: #4000c7;
+            background-color: #F38BA0;
         }
     }
 
@@ -27,7 +27,7 @@ const ToggleContainer = styled.div`
         height: 22px;
         border-radius: 50%;
         background-color: #ffffff;
-        transition: all .25s ease;
+        transition: all .2s ease;
         
         &.toggle--checked {
             left: 27px;
@@ -38,7 +38,7 @@ const ToggleContainer = styled.div`
 const Desc = styled.div`
     text-align: center;
     font-size: 16px;
-    margin: 10px;
+    margin: 1rem;
     font-weight: bold;
 `;
 

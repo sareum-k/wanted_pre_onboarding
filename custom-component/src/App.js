@@ -10,29 +10,29 @@ import './App.css';
 function App() {
   return (
     <>
-      <div id='container'>
+      <div className='container'>
+        <div className='title'>Toggle</div>
         <div className='box'>
-          <div className='sub_title'>Toggle</div>
           <Toggle />
         </div>
+        <div className='title'>Modal</div>
         <div className='box'>
-          <div className='sub_title'>Modal</div>
           <Modal />
         </div>
+        <div className='title'>Tab</div>
         <div className='box'>
-          <div className='sub_title'>Tab</div>
           <Tab />
         </div>
+        <div className='title'>Tag</div>
         <div className='box'>
-          <div className='sub_title'>Tag</div>
           <Tag />
         </div>
+        <div className='title'>AutoComplete</div>
         <div className='box'>
-          <div className='sub_title'>AutoComplete</div>
           <AutoComplete />
         </div>
+        <div className='title'>ClickToEdit</div>
         <div className='box'>
-          <div className='sub_title'>ClickToEdit</div>
           <ClickToEdit />
         </div>
       </div>
