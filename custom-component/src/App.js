@@ -27,11 +27,11 @@ function App() {
           <div className='sub_title'>Tag</div>
           <Tag />
         </div>
-        {/* <div className='box'>
+        <div className='box'>
           <div className='sub_title'>AutoComplete</div>
           <AutoComplete />
         </div>
-        <div className='box'>
+        {/* <div className='box'>
           <div className='sub_title'>ClickToEdit</div>
           <ClickToEdit />
         </div> */}
