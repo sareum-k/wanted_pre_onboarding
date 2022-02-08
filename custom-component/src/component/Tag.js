@@ -2,95 +2,90 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 export const TagsInput = styled.div`
-    margin: 8rem auto;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    min-height: 48px;
-    width: 480px;
-    padding: 0 8px;
-    border: 1px solid rgb(214, 216, 218);
-    border-radius: 6px;
+    margin: 6rem auto;
+    width: 40rem;
+    padding: 0 0.7rem;
+    border: 1px solid #FFBCBC;
+    border-radius: 0.3rem;
 
     > ul {
         display: flex;
         flex-wrap: wrap;
         padding: 0;
-        margin: 8px 0 0 0;
+        margin: 0.5rem 0 0 0;
 
         > .tag {
-            width: auto;
-            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            padding: 0 8px;
-            font-size: 14px;
+            width: auto;
+            height: 2rem;
+            color: #ffffff;
+            padding: 0 0.5rem;
+            font-size: 0.9rem;
             list-style: none;
-            border-radius: 6px;
-            margin: 0 8px 8px 0;
-            background: #4000c7;
+            border-radius: 0.4rem;
+            margin: 0 0.5rem 0.5rem 0;
+            background: #F38BA0;
         
             > .tag-close-icon {
+                width: 1rem;
+                height: 1rem;
                 display: block;
-                width: 16px;
-                height: 16px;
-                line-height: 16px;
+                line-height: 1rem;
                 text-align: center;
-                font-size: 14px;
-                margin-left: 8px;
-                color: #4000c7;
+                font-size: 0.8rem;
+                margin-left: 0.3rem;
+                color: black;
                 border-radius: 50%;
-                background: #fff;
+                background: #ffffff;
                 cursor: pointer;
+                font-weight: bold;
             }
         }
     }
 
     > input {    
-        flex: 1;
         border: none;
-        height: 46px;
-        font-size: 14px;
-        padding: 4px 0 0 0;
+        height: 3rem;
+        font-size: 0.9rem;
+
         :focus {
         outline: transparent;
         }
     }
 
     &:focus-within {
-        border: 1px solid #4000c7;
+        border: 2px solid #F38BA0;
     }
 `;
 
 export const Tag = () => {
-    const initialTags = ['CodeStates', 'kimcoding'];
+    const initialTags = ['Pre_onboarding', 'Sareum Kang'];
 
     const [tags, setTags] = useState(initialTags);
 
-    const removeTags = (indexToRemove) => {
-        setTags(tags.filter((el) => el !== tags[indexToRemove]))
+    const removeTags = (idxToRemove) => {
+        setTags(tags.filter((el) => el !== tags[idxToRemove]))
     };
 
-    const addTags = (event) => {
-        if (tags.indexOf(event.target.value) === -1 && event.target.value !== '') {
-            setTags([...tags, event.target.value])
-            event.target.value = ''
+    const addTags = (e) => {
+        if (tags.indexOf(e.target.value) === -1 && e.target.value !== '') {
+            setTags([...tags, e.target.value])
+            e.target.value = ''
+        } else if (tags.indexOf(e.target.value) !== -1) {
+            alert('이미 존재하는 태그입니다.')
+            e.target.value = ''
         }
-
-        // TODO : tags 배열에 새로운 태그를 추가하는 메소드를 완성하세요. 
-        // 이 메소드는 태그 추가 외에도 아래 3 가지 기능을 수행할 수 있어야 합니다.
-        // - 이미 입력되어 있는 태그인지 검사하여 이미 있는 태그라면 추가하지 말기
-        // - 아무것도 입력하지 않은 채 Enter 키 입력시 메소드 실행하지 말기
-        // - 태그가 추가되면 input 창 비우기
     }
-
 
     return (
         <>
             <TagsInput>
-                <ul id='tags'>
+                <ul className='tags'>
                     {tags.map((tag, idx) => (
                         <li
                             key={idx}
@@ -105,7 +100,7 @@ export const Tag = () => {
                     ))}
                 </ul>
                 <input
-                    className='tag-input'
+                    className='input'
                     type='text'
                     onKeyUp={(e) => e.key === "Enter" ? addTags(e) : null}
                     placeholder='Press enter to add tags'

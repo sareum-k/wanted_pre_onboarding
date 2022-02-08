@@ -2,42 +2,42 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 const TabMenu = styled.ul`
-    background-color: #dcdcdc;
-    color: rgba(73, 73, 73, 0.5);
+    color: #F38BA0;
     font-weight: bold;
     display: flex;
     flex-direction: row;
     justify-items: center;
     align-items: center;
     list-style: none;
+    padding: 0;
 
     .submenu {
-        padding: 10px 210px;
+        padding: 1rem;
+        width: 100%;
         margin: 0 auto;
-        background-color: #B6E2D3;
+        border-top: 1px solid #F38BA0;
+        border-bottom: 1px solid #F38BA0;
     }
 
     .focused {
-        background-color: #D8A7B1;
-        color: black;
-    }
-
-    & div.desc {
-        text-align: center;
+        color: white;
+        background-color: #F38BA0;
     }
 `;
 
 const Desc = styled.div`
     text-align: center;
+    padding: 2.5rem 0;
+    font-weight: bold;
 `;
 
 export const Tab = () => {
     const [currentTab, setCurrntTab] = useState(0)
 
     const menuArr = [
-        { name: 'Tab1', content: 'Tab menu ONE' },
-        { name: 'Tab2', content: 'Tab menu TWO' },
-        { name: 'Tab3', content: 'Tab menu THREE' },
+        { name: 'Tab1', content: 'Tab1 페이지 입니다.' },
+        { name: 'Tab2', content: 'Tab2 페이지 입니다.' },
+        { name: 'Tab3', content: 'Tab3 페이지 입니다.' },
     ];
 
     const selectMenuHandler = (index) => {
