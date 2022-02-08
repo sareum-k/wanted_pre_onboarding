@@ -23,11 +23,11 @@ function App() {
           <div className='sub_title'>Tab</div>
           <Tab />
         </div>
-        {/* <div className='box'>
+        <div className='box'>
           <div className='sub_title'>Tag</div>
           <Tag />
         </div>
-        <div className='box'>
+        {/* <div className='box'>
           <div className='sub_title'>AutoComplete</div>
           <AutoComplete />
         </div>
