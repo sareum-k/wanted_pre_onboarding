@@ -1,34 +1,67 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-const deselectedOptions = [
-    'rustic',
-    'antique',
-    'vinyl',
-    'vintage',
-    'refurbished',
-    '신품',
-    '빈티지',
-    '중고A급',
-    '중고B급',
-    '골동품'
+const listOptions = [
+    'apple',
+    'banana',
+    'circle',
+    'delete',
+    'eve',
+    'fox',
+    'gift',
+    'hot',
+    'issue',
+    'joke',
+    'korea',
+    'love',
+    'mother',
+    'name',
+    'oops',
+    'page',
+    'queen',
+    'relax',
+    'save',
+    'tip',
+    'user',
+    'view',
+    'wow',
+    'year',
+    'zoo',
+    '강사름',
+    '낙엽',
+    '다리미',
+    '라디오',
+    '마늘',
+    '바지',
+    '사랑',
+    '아버지',
+    '자두',
+    '차액',
+    '카센터',
+    '타이어',
+    '파란색',
+    '하늘',
+    '원티드',
+    '코드스테이츠'
 ];
 
-const boxShadow = '0 4px 6px rgb(32 33 36 / 28%)';
+const boxShadow = '0 4px 6px rgb(32 33 36 / 10%)';
 const activeBorderRadius = '1rem 1rem 0 0';
 const inactiveBorderRadius = '1rem 1rem 1rem 1rem';
 
 export const InputContainer = styled.div`
-    margin-top: 8rem;
+    margin: 2rem 6rem 0 6rem;
     background-color: #ffffff;
     display: flex;
     flex-direction: row;
     padding: 1rem;
-    border: 1px solid rgb(223, 225, 229);
+    border: 1px solid #D1D1D1;
+    
     border-radius: ${(props) =>
-        props.hasText ? activeBorderRadius : inactiveBorderRadius};
+        props.text ? activeBorderRadius : inactiveBorderRadius};
     z-index: 3;
-    box-shadow: ${(props) => (props.hasText ? boxShadow : 0)};
+    
+    box-shadow: ${(props) => (props.text ? boxShadow : 0)};
     &:focus-within {
         box-shadow: ${boxShadow};
     }
@@ -42,63 +75,55 @@ export const InputContainer = styled.div`
         outline: none;
         font-size: 16px;
     }
+
     > div.delete-button {
         cursor: pointer;
     }
 `;
 
 export const DropDownContainer = styled.ul`
+    margin: -0.5rem 6rem 0 6rem;
+    padding: 0.5rem 0;
     background-color: #ffffff;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     list-style-type: none;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 0px;
-    margin-top: -1px;
-    padding: 0.5rem 0;
-    border: 1px solid rgb(223, 225, 229);
+    border: 1px solid #D1D1D1;
     border-radius: 0 0 1rem 1rem;
     box-shadow: ${boxShadow};
     z-index: 3;
 
     > li {
-        padding: 0 1rem;
-
         &:hover {
-            background-color: #eee;
+            background-color: #FFBCBC;
         }
-        
+
         &.selected {
-            background-color: #ebe5f9;
+            background-color: #FFBCBC;
         }
     }
 `;
 
 export const AutoComplete = () => {
-    const [hasText, setHasText] = useState(false);
+    const [text, setText] = useState(false);
     const [inputValue, setInputValue] = useState('');
-    const [options, setOptions] = useState(deselectedOptions);
+    const [options, setOptions] = useState(listOptions);
     const [selected, setSelected] = useState(-1);
 
     useEffect(() => {
         if (inputValue === '') {
-            setHasText(false);
+            setText(false);
         }
     }, [inputValue]);
 
-    const handleInputChange = (event) => {
-        const { value } = event.target;
+    const handleInputChange = (e) => {
+        const { value } = e.target;
         if (value.includes('\\')) return;
 
-        value ? setHasText(true) : setHasText(false);
+        value ? setText(true) : setText(false);
         setInputValue(value);
 
         const filterRegex = new RegExp(value, 'i');
-        const resultOptions = deselectedOptions.filter((option) =>
+        const resultOptions = listOptions.filter((option) =>
             option.match(filterRegex)
         );
         setOptions(resultOptions);
@@ -106,7 +131,7 @@ export const AutoComplete = () => {
 
     const handleDropDownClick = (clickedOption) => {
         setInputValue(clickedOption);
-        const resultOptions = deselectedOptions.filter(
+        const resultOptions = listOptions.filter(
             (option) => option === clickedOption
         );
         setOptions(resultOptions);
@@ -116,16 +141,17 @@ export const AutoComplete = () => {
         setInputValue('');
     };
 
-    const handleKeyUp = (event) => {
-        if (event.getModifierState("Fn") || event.getModifierState("Hyper") || event.getModifierState("OS") || event.getModifierState("Super") || event.getModifierState("Win")) return; if (event.getModifierState("Control") + event.getModifierState("Alt") + event.getModifierState("Meta") > 1) return;
-        if (hasText) {
-            if (event.code === 'ArrowDown' && options.length - 1 > selected) {
+    const handleKeyUp = (e) => {
+        if (e.getModifierState("Fn") || e.getModifierState("Hyper") || e.getModifierState("OS") || e.getModifierState("Super") || e.getModifierState("Win")) return;
+        if (e.getModifierState("Control") + e.getModifierState("Alt") + e.getModifierState("Meta") > 1) return;
+        if (text) {
+            if (e.code === 'ArrowDown' && options.length - 1 > selected) {
                 setSelected(selected + 1);
             }
-            if (event.code === 'ArrowUp' && selected >= 0) {
+            if (e.code === 'ArrowUp' && selected >= 0) {
                 setSelected(selected - 1);
             }
-            if (event.code === 'Enter' && selected >= 0) {
+            if (e.code === 'Enter' && selected >= 0) {
                 handleDropDownClick(options[selected]);
                 setSelected(-1);
             }
@@ -134,22 +160,22 @@ export const AutoComplete = () => {
 
     return (
         <div className='autocomplete-wrapper' onKeyUp={handleKeyUp}>
-            <InputContainer hasText={hasText}>
+            <InputContainer text={text}>
                 <input
                     type='text'
                     className='autocomplete-input'
-                    onChange={handleInputChange}
                     value={inputValue}
+                    onChange={handleInputChange}
                 />
                 <div className='delete-button' onClick={handleDeleteButtonClick}>
                     &times;
                 </div>
             </InputContainer>
-            {hasText ? (
+            {text ? (
                 <DropDown
                     options={options}
-                    handleDropDownClick={handleDropDownClick}
                     selected={selected}
+                    handleDropDownClick={handleDropDownClick}
                 />
             ) : null}
         </div>
@@ -162,8 +188,8 @@ export const DropDown = ({ options, handleDropDownClick, selected }) => {
             {options.map((option, idx) => (
                 <li
                     key={idx}
+                    className={selected === idx ? 'selected' : ""}
                     onClick={() => handleDropDownClick(option)}
-                    className={selected === idx ? 'selected' : ''}
                 >
                     {option}
                 </li>

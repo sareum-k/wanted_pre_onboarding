@@ -4,24 +4,30 @@ import styled from 'styled-components';
 export const InputBox = styled.div`
     text-align: center;
     display: inline-block;
-    width: 150px;
-    height: 30px;
-    border: 1px #bbb dashed;
-    border-radius: 10px;
+    width: 9rem;
+    height: 1.5rem;
+    border: 1px solid #D1D1D1;
+    border-radius: 0.3rem;
     margin-left: 1rem;
+    margin-right: 1rem;
 `;
 
 export const InputEdit = styled.input`
     text-align: center;
     display: inline-block;
-    width: 150px;
-    height: 30px;
+    width: 9rem;
+    height: 1.5rem;
 `;
 
 export const InputView = styled.div`
     text-align: center;
     align-items: center;
     margin-top: 3rem;
+
+    >label {
+        font-weight: bold;
+    }
+    
     div.view {
         margin-top: 3rem;
     }
@@ -29,17 +35,17 @@ export const InputView = styled.div`
 
 export const MyInput = ({ value, handleValueChange }) => {
     const inputEl = useRef(null);
-    const [isEditMode, setEditMode] = useState(false);
+    const [editMode, setEditMode] = useState(false);
     const [newValue, setNewValue] = useState(value);
 
     useEffect(() => {
-        if (isEditMode) {
+        if (editMode) {
             inputEl.current.focus();
         }
-    }, [isEditMode]);
+    }, [editMode]);
 
     const handleClick = () => {
-        setEditMode(!isEditMode);
+        setEditMode(!editMode);
     };
 
     const handleBlur = () => {
@@ -53,23 +59,23 @@ export const MyInput = ({ value, handleValueChange }) => {
 
     return (
         <InputBox>
-            {isEditMode ? (
+            {editMode ? (
                 <InputEdit
                     type='text'
-                    value={newValue}
+                    value={value}
                     ref={inputEl}
                     onBlur={handleBlur}
                     onChange={handleInputChange}
                 />
             ) : (
-                <span onClick={handleClick}>{newValue}</span>
+                <span onClick={handleClick}>{value}</span>
             )}
         </InputBox>
     );
 };
 
 const initialInfo = {
-    name: '김코딩',
+    name: '강사름',
     age: 20
 };
 
@@ -81,14 +87,12 @@ export const ClickToEdit = () => {
         <>
             <InputView>
                 <label>이름</label>
-                <MyInput value={name} handleValueChange={(newValue) => setName(newValue)} />
-            </InputView>
-            <InputView>
+                <MyInput value={name} handleValueChange={(value) => setName(value)} />
                 <label>나이</label>
-                <MyInput value={age} handleValueChange={(newValue) => setAge(newValue)} />
+                <MyInput value={age} handleValueChange={(value) => setAge(value)} />
             </InputView>
             <InputView>
-                <div className='view'>이름 {name} 나이 {age}</div>
+                <div className='view'>제 이름은 {name}이고 나이 {age}입니다.</div>
             </InputView>
         </>
     );
