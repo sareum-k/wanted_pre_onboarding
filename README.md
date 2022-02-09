@@ -9,7 +9,6 @@ custom component 과제 6가지 중 6가지를 구현하였습니다.
 - ClickToEdit
 </br>
 </br>
-</br>
 
 # 구현 방법
 코드는 React Hook인 `useEffect, useState, useRef`를 이용하여 구현하였습니다.
@@ -35,37 +34,41 @@ AutoComplete을 구현함에 있어 DropDown 및 동일한 글자를 매치시�
 
 # Error Handling
 ### npm create-react-app 설치 오류
-- 에러문구: You are running `create-react-app` 4.0.3, which is behind the latest release (5.0.0).
-- 언제: npm create-react-app 명령문 입력 후 위와 같은 오류 코드 발생
-- 에러접근: 버전의 문제로 보여졌고 구글링 결과 글로벌 지원을 하지 않아서(Global installs of create-react-app are no longer supported) 생긴 문제같았다. 
-          구글릭을 통해 아래와 같은 방법으로 해결하였다.
+- 에러 문구: You are running `create-react-app` 4.0.3, which is behind the latest release (5.0.0).
+- 에러 발생: npm create-react-app 명령문 입력 후 위와 같은 오류 코드 발생
+- 에러 접근: 버전의 문제로 보여졌고 구글링 결과 글로벌 지원을 하지 않아서(Global installs of create-react-app are no longer supported) 생긴 문제같았다. 구글링을 통해 아래와 같은 방법으로 해결하였다.
 - 해결방법: 1. 전역적으로 설치되어있는 react app 제거 2. 캐시 삭제 명령어 입력 3. npm create-react-app 실행
-- </br>
+</br>
 </br>
 </br>
 
 # 실행 gif
 </br>
 
-### Toggle
+## Toggle
 ![toggle](https://user-images.githubusercontent.com/87534763/153128844-dc63c299-0ce1-4e1d-adf0-f9c176f461db.gif)
 </br>
+</br>
 
-### Modal
+## Modal
 ![modal](https://user-images.githubusercontent.com/87534763/153128947-30203fb9-a25f-49e5-89c1-47bbee7d13da.gif)
 </br>
+</br>
 
-### Tab
+## Tab
 ![tab](https://user-images.githubusercontent.com/87534763/153128981-da21c3fe-7c40-482d-a1f7-640081a429da.gif)
 </br>
+</br>
 
-### Tag
+## Tag
 ![tag](https://user-images.githubusercontent.com/87534763/153128998-43577635-719d-4bdc-a120-a46b67c1126b.gif)
 </br>
-
-### AutoComplete
-![autoComplete](https://user-images.githubusercontent.com/87534763/153129029-d6f48dfe-2f6e-4611-a0f1-c84b90d31f93.gif)
 </br>
 
-### ClickToEdit
+## AutoComplete
+![autoComplete](https://user-images.githubusercontent.com/87534763/153129029-d6f48dfe-2f6e-4611-a0f1-c84b90d31f93.gif)
+</br>
+</br>
+
+## ClickToEdit
 ![clickToEdit](https://user-images.githubusercontent.com/87534763/153129089-b3c0622c-a04d-4ec9-98f6-97aa7fdecdd6.gif)
