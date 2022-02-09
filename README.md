@@ -51,7 +51,7 @@ AutoComplete을 구현함에 있어 DropDown 및 동일한 글자를 매치시�
 </br>
 
 ## Modal
-![modal](https://user-images.githubusercontent.com/87534763/153128947-30203fb9-a25f-49e5-89c1-47bbee7d13da.gif)
+![re-modal](https://user-images.githubusercontent.com/87534763/153131784-f5dee306-f2bc-4d63-9a1f-41f7d397abc3.gif)
 </br>
 </br>
 
@@ -61,12 +61,13 @@ AutoComplete을 구현함에 있어 DropDown 및 동일한 글자를 매치시�
 </br>
 
 ## Tag
-![tag](https://user-images.githubusercontent.com/87534763/153128998-43577635-719d-4bdc-a120-a46b67c1126b.gif)
+![re-tag](https://user-images.githubusercontent.com/87534763/153131839-82818f66-ab90-4c46-870e-02a8f0421dfc.gif)
 </br>
 </br>
 
 ## AutoComplete
 ![autoComplete](https://user-images.githubusercontent.com/87534763/153129029-d6f48dfe-2f6e-4611-a0f1-c84b90d31f93.gif)
+- 
 </br>
 </br>
 
