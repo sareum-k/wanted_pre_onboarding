@@ -62,7 +62,7 @@ export const MyInput = ({ value, handleValueChange }) => {
             {editMode ? (
                 <InputEdit
                     type='text'
-                    value={value}
+                    value={newValue}
                     ref={inputEl}
                     onBlur={handleBlur}
                     onChange={handleInputChange}
@@ -87,9 +87,9 @@ export const ClickToEdit = () => {
         <>
             <InputView>
                 <label>이름</label>
-                <MyInput value={name} handleValueChange={(value) => setName(value)} />
+                <MyInput value={name} handleValueChange={(newValue) => setName(newValue)} />
                 <label>나이</label>
-                <MyInput value={age} handleValueChange={(value) => setAge(value)} />
+                <MyInput value={age} handleValueChange={(newValue) => setAge(newValue)} />
             </InputView>
             <InputView>
                 <div className='view'>제 이름은 {name}이고 나이 {age}입니다.</div>
