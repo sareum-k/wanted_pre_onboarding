@@ -10,9 +10,16 @@ custom component 과제 6가지 중 6가지를 구현하였습니다.
 
 
 
+
+
+
 # 구현 방법
 코드는 React Hook인 `useEffect, useState, useRef`를 이용하여 구현하였습니다.
 CSS는 styled-components를 이용하여 구현하였습니다.
+
+
+
+
 
 
 
@@ -22,10 +29,18 @@ CSS는 styled-components를 이용하여 구현하였습니다.
 
 
 
+
+
+
+
 # 구현의 어려움
 AutoComplete을 구현함에 있어 DropDown 및 동일한 글자를 매치시키는 것을 어떻게 구현하면 좋을지 개념을 잡기까지 많은 어려움이 있었습니다. 
 프로젝트 시에 접했던 정규표현식을 통한 접근이 가능한 것을 알게 되었고 RegExp 내장 객체를 이용하여 구현을 진행하였습니다. 
 앞으로도 정규식에 대한 공부를 추가적으로 해봐야겠다는 생각을 했습니다.
+
+
+
+
 
 
 
@@ -39,7 +54,13 @@ AutoComplete을 구현함에 있어 DropDown 및 동일한 글자를 매치시�
 
 
 
+
+
+
+
 # 실행 gif
+
+
 ## Toggle
 ![toggle](https://user-images.githubusercontent.com/87534763/153128844-dc63c299-0ce1-4e1d-adf0-f9c176f461db.gif)
 
